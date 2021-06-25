@@ -20,7 +20,10 @@ class Bot:
                 print(err)
 
     def on_event(self, event):
-        print(event.message.text)
+        if event.type == vk_api.bot_longpoll.VkBotEventType.MESSAGE_NEW:
+            print(event.message.text)
+        else:
+            print('Пока мы не можем обрабатывать такие сообщения', event.type)
 
 
 if __name__ == "__main__":
