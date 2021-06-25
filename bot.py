@@ -11,6 +11,7 @@ class Bot:
         self.token = token
         self.vk = vk_api.VkApi(token=self.token)
         self.long_poller = vk_api.bot_longpoll.VkBotLongPoll(self.vk, self.group_id)
+        self.api =self.vk.get_api()
 
     def run(self):
         for event in self.long_poller.listen():
@@ -22,6 +23,7 @@ class Bot:
     def on_event(self, event):
         if event.type == vk_api.bot_longpoll.VkBotEventType.MESSAGE_NEW:
             print(event.message.text)
+            self.api.messages.send(message=event.message.text)
         else:
             print('Пока мы не можем обрабатывать такие сообщения', event.type)
 
