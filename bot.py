@@ -1,4 +1,4 @@
-token = '511d9adac9eba73d0a9e98d82cfac56980242a75438e2977e67001a4283d5236703f4924cce2fc3b0a345'
+token = ''
 import vk_api
 import vk_api.bot_longpoll
 
